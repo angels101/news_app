@@ -1,0 +1,31 @@
+{%load bootstrap4 %}
+{% load static %}
+<!--DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {%if title%}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEEN REPUBLIC - {{title}}</title>
+    {%else%}
+    <title>YOUNG NATION</title>
+    {% endif %}
+
+    {% block styles %}
+    {% bootstrap4_css%}
+    <link rel="stylesheet" href="{% static 'css/basenews.css'%}"> {%endblock%}
+</head>
+<body>
+    {% include "navbar.html"%}
+    {% block content %} <h1 class='text-center'>News for {{date|date:"l d-F Y"}}</h1> {%endbl
+        ock%}
+        {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap4_javascript %}
+        {% endblock %}
+<!---{% block content %} <h1>News for {{date|date:"l d-F Y"}}</h1> {%endblock%}-->
+
+</body>
+</html>
