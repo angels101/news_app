@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'users',
     'entries.apps.EntriesConfig',
     'bootstrap4',
     'django.contrib.admin',
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -127,3 +129,4 @@ STATICFILES_DIR =[
     BASE_DIR / "static",
     '/youthvoice/static',
 ]
+LOGIN_REDIRECT ='youthvoice-home'

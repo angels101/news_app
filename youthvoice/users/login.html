@@ -1,0 +1,31 @@
+{% extends "entries/base.html" %} 
+
+{% block content %} 
+
+    <div class="col-md-8">
+          
+
+        <div class="card mb-4 mt-4">
+          <!--img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap"----->
+          <div class="card-header">
+            <!--h2 class="card-title">{{ object.entry.title }}</h2>
+            <p class="card-text">{{ object.entry.text|linebreaks }}</p--->
+          Login to your Account
+          </div>
+          <!--div class="card-footer text-muted">
+            Posted on {{ object.entry.date }} by
+           <span class="text-info mr-2" ><a href="#">{{ object.entry.author }}</a></span--->
+         
+         <div class="card-body">
+         <form method="POST">
+         {% csrf_token %} 
+         {{form.as_p}}
+         <form action="{% url 'submit' %} "method='post'>
+         <button>type="Submit" class="btn btn-primary">Login</button>
+         </form>
+        </div>
+    </div>
+
+
+     
+{% endblock %}
