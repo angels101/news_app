@@ -1,8 +1,8 @@
 from django.db import models
 
 from django.contrib.auth.models import User
-
-
+#from .views import HomeView,EntryDetailView
+from django.conf import settings
 # Create your models here.
 class Entry(models.Model):
     entry_title = models.CharField(max_length=50)

@@ -1,28 +1,43 @@
- 
- {% extends "entries/base.html" %} 
- {% block content %} {% endblock %}
+{% extends "entries/base.html" %} 
+
+{% block content %} 
  
  <!-- Blog Entries Column -->
       <div class="col-md-8">
-
-        <h1 class="my-4">Page Heading
+          <!--h1 class="my-4">Page Heading
           <small>Secondary Text</small>
-        </h1>
+        </h1----->
 {% for entry in youthvoice_entries %}
         <!-- Blog Post -->
-        <div class="card mb-4">
+        <div class="card mb-4 mt-4">
           <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
           <div class="card-body">
             <h2 class="card-title">{{ entry.entry.title }}</h2>
-            <p class="card-text">{{ entry.entry.text }}</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <p class="card-text">{{ entry.entry.text|truncatechars:100 }}</p>
+            <a href="{% url 'entry_detail:entry.pk' %} class="btn btn-primary">Read More &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             Posted on {{ entry.entry.date }} by
-            <a href="#">{{ entry.entry.author }}</a>
+           <span class="text-info mr-2" >{{ entry.entry.author }}<a href="#"></a></span>
           </div>
         </div>
-        {%  endfor %}
+{%  endfor %}
+{% if is paginated %}
+       <!--Pagination---->
+         <!-- Pagination -->
+        <ul class="pagination justify-content-center mb-4">
+{% if page_obj.has_previous %}
+          <li class="page-item">
+            <a class="page-link" href="?page={{ page_obj.has_previous_page_number}}">&larr; Previous Page</a>
+          </li>
+{% endif %}
 
-
-        
+{% if page_object.has_next %}
+          <li class="page-item disabled">
+            <a class="page-link" href="?page={{ page_object.has_next_page_number}}">Next Page &rarr;</a>
+          </li>
+{% endif %}
+          </ul>
+{% endif %}
+        </div>
+{% endblock %}
