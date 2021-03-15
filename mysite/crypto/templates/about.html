@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content  %}
+<hr><br><br/>
+{{about}}
+CryptoNews is a company committed to empowering news readers to tack back control of their news diets.
+        With that in mind, their big headline gets to the heart of their prospects pain: Reading the news today
+         is like opening a book at chapter three: You're instantly lost. This headline implies that Acciyo will help eliminate that lost
+        feeling and get clarity on the news that their audiences consumes.
+
+
+<br><br/>
+<div class="mb-3">
+  <label for="exampleFormControlInput1" class="form-label">Contact Us</label>
+  <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea><br/> <br/>
+   <button class="btn btn-outline-secondary" href="{% url 'home' %}" type="submit">Submit</button>
+</div>
+{% endblock %}

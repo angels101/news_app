@@ -34,3 +34,6 @@ def prices(request):
         return render(request, 'prices.html', {'notfound': notfound})
 
         
+def about(request):
+        about=""
+        return render(request, 'about.html', {'about': about})
